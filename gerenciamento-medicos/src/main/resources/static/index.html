@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerenciador de Médicos</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Gerenciador de Médicos</h1>
+
+    <div id="listaMedicos"></div>
+
+    <button class="btn btn-azul" onclick="abrirFormulario()">
+        Incluir Novo Médico
+    </button>
+
+    <div id="modalFormulario" class="modal oculto">
+
+        <div class="modal-conteudo">
+
+            <h2 id="tituloFormulario">
+                Incluir Novo Médico
+            </h2>
+
+            <form id="formMedico">
+
+                <input type="hidden" id="id" name="id">
+
+                <label for="nome">Nome</label>
+                <input type="text"
+                       id="nome"
+                       name="nome"
+                       placeholder="Digite o nome do médico"
+                       required>
+
+                <label for="crm">CRM</label>
+                <input type="text"
+                       id="crm"
+                       name="crm"
+                       placeholder="Digite o CRM"
+                       required>
+
+                <label for="especialidade">Especialidade</label>
+                <input type="text"
+                       id="especialidade"
+                       name="especialidade"
+                       placeholder="Digite a especialidade"
+                       required>
+
+                <label>Cadastro Ativado</label>
+
+                <div class="radio-group">
+
+                    <label>
+                        <input type="radio"
+                               name="cadastroAtivado"
+                               value="true"
+                               checked>
+                        Sim
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="cadastroAtivado"
+                               value="false">
+                        Não
+                    </label>
+
+                </div>
+
+                <label for="observacoes">Observações</label>
+
+                <textarea id="observacoes"
+                          name="observacoes"
+                          rows="4"
+                          placeholder="Digite observações adicionais"></textarea>
+
+                <div class="acoes-formulario">
+
+                    <button type="submit"
+                            class="btn btn-azul">
+                        Salvar
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-vermelho"
+                            onclick="fecharFormulario()">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="scripts/index.js"></script>
+
+</body>
+
+</html>

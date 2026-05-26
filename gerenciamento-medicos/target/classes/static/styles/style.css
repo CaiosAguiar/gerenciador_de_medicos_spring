@@ -1,0 +1,236 @@
+body {
+    background-color: #d0d0d0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #e8e8e8;
+    border: 1px solid #b0b0b0;
+    border-radius: 4px;
+    padding: 16px 20px 20px;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 14px;
+    color: #222;
+}
+
+/* Cards de médico */
+.card-medico {
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-medico .info {
+    flex: 1;
+}
+
+.card-medico .info p {
+    margin: 1px 0;
+    font-size: 13px;
+    color: #222;
+}
+
+.card-medico .info .nome {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.card-medico .acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.badge-desativado {
+    background: #e07010;
+    color: white;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+}
+
+/* Botões */
+.btn {
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 76px;
+    text-align: center;
+}
+
+.btn-azul {
+    background: #5b9bd5;
+}
+
+.btn-azul:hover {
+    background: #4a8ac4;
+}
+
+.btn-vermelho {
+    background: #cc4444;
+}
+
+.btn-vermelho:hover {
+    background: #bb3333;
+}
+
+.btn-incluir {
+    display: block;
+    margin: 12px auto 0;
+    background: #5b9bd5;
+    color: white;
+    border: none;
+    padding: 7px 28px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-incluir:hover {
+    background: #4a8ac4;
+}
+
+/* Rodapé */
+.rodape {
+    background: #777;
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 12px;
+    margin-top: 14px;
+    border-radius: 2px;
+    line-height: 1.6;
+}
+
+/* Modal / formulário inline */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-conteudo {
+    background: #e8e8e8;
+    width: 400px;
+    padding: 16px 20px 20px;
+    border-radius: 4px;
+    border: 1px solid #b0b0b0;
+}
+
+.modal-conteudo h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 14px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-linha {
+    display: flex;
+    align-items: center;
+    margin-bottom: 9px;
+}
+
+.form-linha label {
+    width: 110px;
+    font-size: 13px;
+    flex-shrink: 0;
+    color: #222;
+}
+
+.form-linha input[type="text"] {
+    flex: 1;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    padding: 4px 7px;
+    font-size: 13px;
+    background: white;
+}
+
+label {
+    font-size: 13px;
+    color: #222;
+}
+
+textarea {
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    padding: 5px 7px;
+    font-size: 13px;
+    min-height: 72px;
+    resize: vertical;
+    margin-bottom: 14px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.radio-group {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.acoes-formulario {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-salvar {
+    background: #5b9bd5;
+    color: white;
+    border: none;
+    padding: 7px 40px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-salvar:hover {
+    background: #4a8ac4;
+}
