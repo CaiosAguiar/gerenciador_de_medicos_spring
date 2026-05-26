@@ -7,15 +7,15 @@ public class Medico {
 
     private Integer id;
 
-    @NotBlank @Size(max = 100)
+    @NotBlank @Size(min = 3,max = 100)
     private String nome;
 
-    @NotBlank @Size(max = 20)
+    @NotBlank @Size(min =5, max = 20)
     private String crm;
 
     @NotBlank @Size(max = 50)
     private String especialidade;
-
+    
     private Boolean cadastroAtivado;
 
     @Size(max = 500)

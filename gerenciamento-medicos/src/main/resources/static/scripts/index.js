@@ -85,14 +85,14 @@ function renderizarMedicos(medicos) {
 
                 <p>
                     <strong>Cadastro Ativado:</strong>
-                    ${medico.cadastroAtivado ? "Sim" : "Não"}
+                    ${medico.cadastroAtivado ? "Sim" : '<strong <span style= "background-color: orange">Não</span> </strong>'}
                 </p>
 
                 <p>
                     <strong>Observações:</strong>
                     ${medico.observacoes || "Nenhuma"}
                 </p>
-                
+
                 </div>
 
                 <div class="acoes-card">
