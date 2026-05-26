@@ -58,9 +58,8 @@ function renderizarMedicos(medicos) {
 
         listaMedicos.innerHTML = `
             <p>Nenhum médico cadastrado.</p>
-        `;
-
-        return;
+            `;
+            return;
     }
 
     let html = "";
@@ -69,6 +68,8 @@ function renderizarMedicos(medicos) {
 
         html += `
             <div class="card-medico">
+
+                <div clas="info">
 
                 <h3>${medico.nome}</h3>
 
@@ -91,6 +92,8 @@ function renderizarMedicos(medicos) {
                     <strong>Observações:</strong>
                     ${medico.observacoes || "Nenhuma"}
                 </p>
+                
+                </div>
 
                 <div class="acoes-card">
 

@@ -1,6 +1,5 @@
 const API = "http://localhost:8080/api/medicos";
 
-// ELEMENTOS
 const listaMedicos =
     document.getElementById("listaMedicos");
 
@@ -29,10 +28,6 @@ const campoEspecialidade =
 const campoObservacoes =
     document.getElementById("observacoes");
 
-
-// ==============================
-// CARREGAR MÉDICOS
-// ==============================
 async function carregarMedicos() {
 
     try {
@@ -57,19 +52,14 @@ async function carregarMedicos() {
     }
 }
 
-
-// ==============================
-// RENDERIZAR MÉDICOS
-// ==============================
 function renderizarMedicos(medicos) {
 
     if (medicos.length === 0) {
 
         listaMedicos.innerHTML = `
             <p>Nenhum médico cadastrado.</p>
-        `;
-
-        return;
+            `;
+            return;
     }
 
     let html = "";
@@ -78,6 +68,8 @@ function renderizarMedicos(medicos) {
 
         html += `
             <div class="card-medico">
+
+                <div clas="info">
 
                 <h3>${medico.nome}</h3>
 
@@ -100,6 +92,8 @@ function renderizarMedicos(medicos) {
                     <strong>Observações:</strong>
                     ${medico.observacoes || "Nenhuma"}
                 </p>
+                
+                </div>
 
                 <div class="acoes-card">
 
@@ -127,9 +121,6 @@ function renderizarMedicos(medicos) {
 }
 
 
-// ==============================
-// ABRIR FORMULÁRIO
-// ==============================
 function abrirFormulario() {
 
     tituloFormulario.innerText =
@@ -147,18 +138,12 @@ function abrirFormulario() {
 }
 
 
-// ==============================
-// FECHAR FORMULÁRIO
-// ==============================
 function fecharFormulario() {
 
     modalFormulario.classList.add("oculto");
 }
 
 
-// ==============================
-// SALVAR MÉDICO
-// ==============================
 formMedico.addEventListener("submit", async function (event) {
 
     event.preventDefault();
@@ -223,9 +208,6 @@ formMedico.addEventListener("submit", async function (event) {
 });
 
 
-// ==============================
-// EDITAR MÉDICO
-// ==============================
 async function editarMedico(id) {
 
     try {
@@ -273,9 +255,6 @@ async function editarMedico(id) {
 }
 
 
-// ==============================
-// EXCLUIR MÉDICO
-// ==============================
 async function excluirMedico(id) {
 
     const confirmar = confirm(
@@ -307,8 +286,4 @@ async function excluirMedico(id) {
     }
 }
 
-
-// ==============================
-// INICIALIZAÇÃO
-// ==============================
 carregarMedicos();
