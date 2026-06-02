@@ -1,49 +1,47 @@
 package br.edu.senac.gerenciamento_medicos.service;
 
-import br.edu.senac.gerenciamento_medicos.Medico;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import br.edu.senac.gerenciamento_medicos.Medico;
+import br.edu.senac.gerenciamento_medicos.repository.MedicoRepository;
 
 @Service
 public class MedicoService {
 
-    private AtomicInteger contadorIds = new AtomicInteger(0);
-    public Map<Integer, Medico> mapMedicos = new ConcurrentHashMap<>();
+    private final MedicoRepository medicoRepository;
 
-    public List<Medico> listar(){
-        return new ArrayList<>(mapMedicos.values());
+    public MedicoService(MedicoRepository medicoRepository) {
+        this.medicoRepository = medicoRepository;
     }
 
-    public Optional<Medico> obterPorId(Integer id){
-        return Optional.ofNullable(mapMedicos.get(id));
+    public List<Medico> listar() {
+        return medicoRepository.findAll();
     }
 
-    public Medico salvar(Medico medico){
-        Integer novoId = contadorIds.incrementAndGet();
-        medico.setId(novoId);
-        mapMedicos.put(novoId, medico);
-        return medico;
+    public Optional<Medico> obterPorId(Integer id) {
+        return medicoRepository.findById(id);
     }
 
-    public Optional<Medico> atualizar(Integer id, Medico medicoAtualizado){
+    public Medico salvar(Medico medico) {
+        return medicoRepository.save(medico);
+    }
 
-        if (!mapMedicos.containsKey(id)){
+    public Optional<Medico> atualizar(Integer id, Medico medicoAtualizado) {
+        if (!medicoRepository.existsById(id)) {
             return Optional.empty();
         }
-
         medicoAtualizado.setId(id);
-
-        mapMedicos.put(id, medicoAtualizado);
-        return Optional.of(medicoAtualizado);
+        return Optional.of(medicoRepository.save(medicoAtualizado));
     }
 
-    public boolean excluir(Integer id){
-        return mapMedicos.remove(id) != null;
+    public boolean excluir(Integer id) {
+        if (!medicoRepository.existsById(id)) {
+            return false;
+        }
+        medicoRepository.deleteById(id);
+        return true;
     }
 }
