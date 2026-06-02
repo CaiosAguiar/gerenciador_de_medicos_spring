@@ -14,13 +14,13 @@ public class Medico {
     @GeneratedValue(strategy= GenerationType.IDENTITY) //ID auto incrementa
     private Integer id;
 
-    @NotBlank @Size(min = 3,max = 100)
+    @NotBlank @Size(min = 5,max = 100)
     private String nome;
 
     @NotBlank @Size(min =5, max = 20)
     private String crm;
 
-    @NotBlank @Size(max = 50)
+    @NotBlank @Size(min =5, max = 50)
     private String especialidade;
     
     private Boolean cadastroAtivado;
