@@ -4,24 +4,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity //medico é uma entidade para o banco de dados
+@Table(name="tb_medicos")
 public class Medico {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY) //ID auto incrementa
     private Integer id;
 
-    @NotBlank @Size(min = 5,max = 100)
+    @NotBlank(message="Por favor preencha o nome") 
+    @Size(min = 5,max = 100, message="Nome deve ter no mínimo 5 caracteres")
     private String nome;
 
-    @NotBlank @Size(min =5, max = 20)
+    @NotBlank(message="Por favor Preencha o CRM")
+    @Size(min =5, max = 20, message="CRM deve ter no mínimo 5 caracteres")
     private String crm;
 
-    @NotBlank @Size(min =5, max = 50)
+    @NotBlank(message="Por favor preencher Especialidade") 
+    @Size(min =5, max = 50, message="Especialidade deve ter no mínimo 5 caracteres")
     private String especialidade;
     
     @NotNull
